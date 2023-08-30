@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarcodeScanner.ViewRecord">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Search Record" x:Name="UserSearch"/>
+            <Button Text="Scan" x:Name="MyScanner2" BackgroundColor="#294a70" TextColor="White"  Clicked="MyScanner2_Clicked"/>
+            <Button Text="View Record 2" x:Name="Find" BackgroundColor="#294a70" TextColor="White"  Clicked="Find_Clicked"/>
+            <Button Text="Connect With Server" Grid.Row="1" BackgroundColor="#294a70" x:Name="ConnectServer2" TextColor="White" Clicked="ConnectServer2_Clicked"/>
+
+            <ListView x:Name="MyView" HasUnevenRows="True" Footer="">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowDefinitions="Auto,Auto,Auto">
+                                <Label Grid.Row="1" Text="{Binding assettag}" TextColor="Black" ></Label>
+                                <Label Grid.Row="2" Text="{Binding assettype}" TextColor="Black" ></Label>
+                                <Label Grid.Row="3" Text="{Binding devicename}" TextColor="Black" ></Label>
+                                <Label Grid.Row="4" Text="{Binding brand}" TextColor="Black" ></Label>
+                                <Label Grid.Row="5" Text="{Binding model}" TextColor="black" ></Label>
+                                <Label Grid.Row="6" Text="{Binding sn}" TextColor="black" ></Label>
+                                <Label Grid.Row="7" Text="{Binding department}" TextColor="black" ></Label>
+                                <Label Grid.Row="8" Text="{Binding location}" TextColor="black" ></Label>
+                                <Label Grid.Row="9" Text="{Binding deviceuser}" TextColor="black" ></Label>
+                                <Label Grid.Row="10" Text="{Binding datepurchased}" TextColor="black" ></Label>
+                                <Label Grid.Row="11" Text="{Binding price}" TextColor="black" ></Label>
+                                <Label Grid.Row="12" Text="{Binding HWdetail}" TextColor="black" ></Label>
+                                <Label Grid.Row="13" Text="{Binding status}" TextColor="black" ></Label>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

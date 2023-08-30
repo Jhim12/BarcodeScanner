@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanner.Android", "BarcodeScanner\BarcodeScanner.Android\BarcodeScanner.Android.csproj", "{325FE76E-C07C-4D31-BD1B-85438BDA5A3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanner", "BarcodeScanner\BarcodeScanner\BarcodeScanner.csproj", "{941EB25D-04BA-411F-9679-FCFD1202DEB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{325FE76E-C07C-4D31-BD1B-85438BDA5A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325FE76E-C07C-4D31-BD1B-85438BDA5A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325FE76E-C07C-4D31-BD1B-85438BDA5A3D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{325FE76E-C07C-4D31-BD1B-85438BDA5A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325FE76E-C07C-4D31-BD1B-85438BDA5A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325FE76E-C07C-4D31-BD1B-85438BDA5A3D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{941EB25D-04BA-411F-9679-FCFD1202DEB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941EB25D-04BA-411F-9679-FCFD1202DEB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941EB25D-04BA-411F-9679-FCFD1202DEB9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{941EB25D-04BA-411F-9679-FCFD1202DEB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941EB25D-04BA-411F-9679-FCFD1202DEB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{941EB25D-04BA-411F-9679-FCFD1202DEB9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D81DB325-524D-47FA-A25B-52EF07449358}
+	EndGlobalSection
+EndGlobal

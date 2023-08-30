@@ -1,0 +1,17 @@
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\bin\Release\netstandard2.0\BarcodeScanner.deps.json
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\bin\Release\netstandard2.0\BarcodeScanner.dll
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\bin\Release\netstandard2.0\ref\BarcodeScanner.dll
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\bin\Release\netstandard2.0\BarcodeScanner.pdb
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\BarcodeScanner.csproj.AssemblyReference.cache
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\BarcodeScanner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\HomePage.xaml.g.cs
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\UpdateRecord.xaml.g.cs
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\ViewRecord.xaml.g.cs
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\BarcodeScanner.AssemblyInfoInputs.cache
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\BarcodeScanner.AssemblyInfo.cs
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\BarcodeScanner.csproj.CoreCompileInputs.cache
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\XamlC.stamp
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\BarcodeScanner.dll
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\refint\BarcodeScanner.dll
+C:\Users\Jhimoel S. Dacera\source\repos\BarcodeScanner\BarcodeScanner\BarcodeScanner\obj\Release\netstandard2.0\BarcodeScanner.pdb

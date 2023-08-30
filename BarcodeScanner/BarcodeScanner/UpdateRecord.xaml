@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarcodeScanner.UpdateRecord">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Scan" x:Name="MyScanner3" BackgroundColor="#294a70" TextColor="White"  Clicked="MyScanner3_Clicked"/>
+            <Button Text="Connect With Server" Grid.Row="1" BackgroundColor="#294a70" x:Name="ConnectServer3" TextColor="White" Clicked="ConnectServer3_Clicked"/>
+            <Button Grid.Row="2" Text="Update record" x:Name="UpdateRecord2" BackgroundColor="#294a70" TextColor="White"  Clicked="UpdateRecord1_Clicked"/>
+            
+            <ListView x:Name="MyView2" HasUnevenRows="True" Footer="">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowDefinitions="Auto,Auto,Auto">
+                                <StackLayout Orientation="Vertical" Grid.Row="0">
+
+                                    <Entry Grid.Row="1" x:Name="Userassettag1" Text="{Binding assettag}" TextColor="Black" ></Entry>
+                                    <Entry Grid.Row="2" x:Name="Userassettype1" Text="{Binding assettype}" TextColor="Black" ></Entry>
+                                    <Entry Grid.Row="3" x:Name="Userdevicename1" Text="{Binding devicename}" TextColor="Black" ></Entry>
+                                    <Entry Grid.Row="4" x:Name="Userbrand1" Text="{Binding brand}" TextColor="Black" ></Entry>
+                                    <Entry Grid.Row="5" x:Name="Usermodel1" Text="{Binding model}" TextColor="black" ></Entry>
+                                    <Entry Grid.Row="6" x:Name="Usersn1" IsReadOnly="true" Text="{Binding sn}" TextColor="black" ></Entry>
+                                    <Entry Grid.Row="7" x:Name="Userdepartment1" Text="{Binding department}" TextColor="black" ></Entry>
+                                    <Entry Grid.Row="8" x:Name="Userlocation1" Text="{Binding location}" TextColor="black" ></Entry>
+                                    <Entry Grid.Row="9" x:Name="Userdeviceuser1" Text="{Binding deviceuser}" TextColor="black" ></Entry>
+                                    <DatePicker Grid.Row="10" x:Name="Userdatepurchased1" Format="dd/MM/yyyy" Date="{Binding datepurchased}" TextColor="black" ></DatePicker>
+                                    <Entry Grid.Row="11" x:Name="Userprice1" Text="{Binding price}" TextColor="black" ></Entry>
+                                    <Entry Grid.Row="12" x:Name="UserHWdetail1" Text="{Binding HWdetail}" TextColor="black" ></Entry>
+                                    <Entry Grid.Row="13" x:Name="Userstatus1" Text="{Binding status}" TextColor="black" ></Entry>
+
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

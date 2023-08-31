@@ -35,20 +35,21 @@ namespace BarcodeScanner
 
         SqlConnection sqlConnection;
 
+
         public MainPage()
         {
             InitializeComponent();
-            string serverdbname = "src_db";
-            string servername = "10.0.0.136"; // Using wifi the mobile app can get access to SSMS
-            string serverusername = "sa";
-            string serverpassword = "masterfile";
-
-            string sqlconn = $"Data Source={servername};Initial Catalog={serverdbname};User ID={serverusername};Password={serverpassword}";
-            sqlConnection = new SqlConnection(sqlconn);
         }
 
         private async void ConnectServer_Clicked(object sender, EventArgs e)
         {
+            //
+            string serverdbname = "src_db";
+            string serverusername = "sa";
+            string serverpassword = "masterfile";
+            string sqlconn = $"Data Source={Useripaddress.Text};Initial Catalog={serverdbname};User ID={serverusername};Password={serverpassword}";
+            sqlConnection = new SqlConnection(sqlconn);
+            //
 
             sqlConnection.Open();
             await App.Current.MainPage.DisplayAlert("Alert", "Connection Establish", "Ok");
@@ -79,48 +80,10 @@ namespace BarcodeScanner
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                   /* MyScanner.Text = result.Text;*/
                     Usersn.Text = result.Text;
                 });
             };
         }
-
-        private async void ViewRecord_Clicked(object sender, EventArgs e)
-        { 
-            try
-            {
-                List<MyTableList> myTableLists = new List<MyTableList>();
-                sqlConnection.Open();
-                string queryString = "Select * from dbo.tbldevice";
-                SqlCommand command = new SqlCommand(queryString, sqlConnection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    myTableLists.Add(new MyTableList
-
-                    {
-
-                        /*                        Id = Convert.ToInt32(reader["Id"]),*/
-                        assettag = reader["assettag"].ToString(),
-                        assettype = reader["assettype"].ToString(),
-                        devicename = reader["devicename"].ToString(),
-
-                    }
-                    );
-                }
-                reader.Close();
-                sqlConnection.Close();
-
-                MyListView.ItemsSource = myTableLists;
-            }   
-            catch (Exception ex)
-            {
-                await App.Current.MainPage.DisplayAlert("Alert",ex.Message,"Ok");   
-                throw;
-            }
-                     
-        }
-
 
 
         private async void AddRecord_Clicked(object sender, EventArgs e)
@@ -172,15 +135,6 @@ namespace BarcodeScanner
             await Navigation.PushAsync(new UpdateRecord());
         }
 
-        private void ViewLogs_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Exit_Clicked(object sender, EventArgs e)
-        {
-
-        }
 
         private async void View_Clicked(object sender, EventArgs e)
         {

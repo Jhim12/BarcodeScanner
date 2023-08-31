@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,11 @@ namespace BarcodeScanner
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-      
-        public partial class UpdateRecord : ContentPage
+
+    public partial class UpdateRecord : ContentPage
     {
-        public class MyTableList
+        MyTableList myTableList; // Declare a field to hold the object
+        public class MyTableList : INotifyPropertyChanged
         {
             public string assettag { get; set; }
             public string assettype { get; set; }
@@ -32,6 +34,13 @@ namespace BarcodeScanner
             public float price { get; set; }
             public string HWdetail { get; set; }
             public string status { get; set; }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         SqlConnection sqlConnection;
@@ -39,7 +48,7 @@ namespace BarcodeScanner
         {
             InitializeComponent();
             string serverdbname = "src_db";
-            string servername = "10.0.0.136"; // Using wifi the mobile app can get access to SSMS
+            string servername = "192.168.100.106"; // Using wifi the mobile app can get access to SSMS
             string serverusername = "sa";
             string serverpassword = "masterfile";
 
@@ -49,8 +58,6 @@ namespace BarcodeScanner
 
         private async void MyScanner3_Clicked(object sender, EventArgs e)
         {
-
-
             var scan = new ZXingScannerPage();
             await Navigation.PushAsync(scan);
             scan.OnScanResult += (result) =>
@@ -59,20 +66,15 @@ namespace BarcodeScanner
                 {
                     await Navigation.PopAsync();
                     MyScanner3.Text = result.Text;
-
-
                     try
                     {
-
-                        List<MyTableList> myTableLists = new List<MyTableList>();
                         sqlConnection.Open();
                         string queryString = $"Select * from dbo.tbldevice WHERE sn = '{MyScanner3.Text}'";
                         SqlCommand command = new SqlCommand(queryString, sqlConnection);
                         SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            myTableLists.Add(new MyTableList
-
+                            myTableList = new MyTableList
                             {
 
                                 assettag = reader["assettag"].ToString(),
@@ -88,31 +90,33 @@ namespace BarcodeScanner
                                 price = float.Parse(reader["price"].ToString()),
                                 HWdetail = reader["HWdetail"].ToString(),
                                 status = reader["status"].ToString(),
-
-                            }
-                            );
+                            };
+                            // Set the BindingContext to the created object
+                            this.BindingContext = myTableList;
                         }
+
                         reader.Close();
                         sqlConnection.Close();
-
-                        MyView2.ItemsSource = myTableLists;
                     }
                     catch (Exception ex)
                     {
                         await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
                         throw;
                     }
-
-
                 });
             };
         }
 
         private async void ConnectServer3_Clicked(object sender, EventArgs e)
         {
-
+            string serverdbname = "src_db";
+            string serverusername = "sa";
+            string serverpassword = "masterfile";
+            string sqlconn = $"Data Source={Useripaddress3.Text};Initial Catalog={serverdbname};User ID={serverusername};Password={serverpassword}";
+            sqlConnection = new SqlConnection(sqlconn);
             sqlConnection.Open();
             await App.Current.MainPage.DisplayAlert("Alert", "Connection Establish", "Ok");
+            sqlConnection.Close();
             try
             {
 
@@ -128,69 +132,29 @@ namespace BarcodeScanner
             }
         }
 
-        private Entry Userassettag1 = new Entry();
-        private Entry Userassettype1 = new Entry();
-        private Entry Userdevicename1 = new Entry();
-        private Entry Userbrand1 = new Entry();
-        private Entry Usermodel1 = new Entry();
-        private Entry Usersn1 = new Entry();
-        private Entry Userdepartment1 = new Entry();
-        private Entry Userlocation1 = new Entry();
-        private Entry Userdeviceuser1 = new Entry();
-        private DatePicker Userdatepurchased1 = new DatePicker();
-        private Entry Userprice1 = new Entry();
-        private Entry UserHWdetail1 = new Entry();
-        private Entry Userstatus1 = new Entry();
 
 
 
         private async void UpdateRecord1_Clicked(object sender, EventArgs e)
         {
-
             try
             {
 
                 sqlConnection.Open();
 
                 string assettagTobeUpdated = Userassettag1.Text;
-
-
                 string assettypeTobeUpdated = Userassettype1.Text;
-
-
                 string devicenameTobeUpdated = Userdevicename1.Text;
-
-
                 string brandTobeUpdated = Userbrand1.Text;
-
-
                 string modelTobeUpdated = Usermodel1.Text;
-
-
                 string snTobeUpdated = Usersn1.Text;
-
-
                 string departmentTobeUpdated = Userdepartment1.Text;
-
-
                 string locationTobeUpdated = Userlocation1.Text;
-
-
                 string deviceuserTobeUpdated = Userdeviceuser1.Text;
-
-
                 DateTime datepurchasedTobeUpdated = Userdatepurchased1.Date;
-
-
                 string priceTobeUpdated = Userprice1.Text;
-
-
                 string HWdetailTobeUpdated = UserHWdetail1.Text;
-
-
                 string statusTobeUpdated = Userstatus1.Text;
-
-
 
                 string qerystr = $"UPDATE dbo.tbldevice SET assettag='{assettagTobeUpdated}'," +
                                     $" assettype ='{assettypeTobeUpdated}'," +
@@ -204,29 +168,20 @@ namespace BarcodeScanner
                                     $" datepurchased ='{datepurchasedTobeUpdated}'," +
                                     $" price ='{priceTobeUpdated}'," +
                                     $" HWdetail ='{HWdetailTobeUpdated}'," +
-                                    $" status ='{statusTobeUpdated}' WHERE assettag='{assettagTobeUpdated}'";
+                                    $" status ='{statusTobeUpdated}' WHERE sn='{snTobeUpdated}'";
 
-                    using (SqlCommand command = new SqlCommand(qerystr, sqlConnection))
-                    {
-
-                        command.ExecuteNonQuery();
-                    }
-
-                    await App.Current.MainPage.DisplayAlert("Alert", "Congrats you have Successfully Updated the row item", "Ok");
-                
+                using (SqlCommand command = new SqlCommand(qerystr, sqlConnection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                sqlConnection.Close();  // Close the connection in the finally block
+                await App.Current.MainPage.DisplayAlert("Alert", "Congrats you have Successfully Updated the row item", "Ok");
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
-
             }
-            finally
-            { 
-                sqlConnection.Close();  // Close the connection in the finally block
-            }
-        
         }
-
 
 
     }

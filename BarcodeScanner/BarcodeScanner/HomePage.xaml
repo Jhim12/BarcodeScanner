@@ -2,62 +2,44 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BarcodeScanner.MainPage">
-
-
-    <ScrollView>
+    <ContentPage.Content>
+        <ScrollView>
 
         <Grid RowDefinitions="Auto,Auto,Auto">
             <StackLayout Orientation="Vertical" Grid.Row="0">
-                <Entry Placeholder="Entry the assettag" x:Name="Userassettag"/>
-                <Entry Placeholder="Entry the assettype" x:Name="Userassettype"/>
-                <Entry Placeholder="Entry the devicename" x:Name="Userdevicename"/>
-                <Entry Placeholder="Entry the brand" x:Name="Userbrand"/>
-                <Entry Placeholder="Entry the model" x:Name="Usermodel"/>
-                <Entry Placeholder="Entry the sn" x:Name="Usersn" IsReadOnly="true"/>
-                <Entry Placeholder="Entry the department" x:Name="Userdepartment"/>
-                <Entry Placeholder="Entry the location" x:Name="Userlocation"/>
-                <Entry Placeholder="Entry the deviceuser" x:Name="Userdeviceuser"/>
+                <Entry Placeholder="Enter the assettag" x:Name="Userassettag"/>
+                    <Entry Placeholder="Enter the assettype" x:Name="Userassettype"/>
+                    <Entry Placeholder="Enter the devicename" x:Name="Userdevicename"/>
+                    <Entry Placeholder="Enter the brand" x:Name="Userbrand"/>
+                    <Entry Placeholder="Enter the model" x:Name="Usermodel"/>
+                    <Entry Placeholder="Enter the sn" x:Name="Usersn" IsReadOnly="true"/>
+                    <Entry Placeholder="Enter the department" x:Name="Userdepartment"/>
+                    <Entry Placeholder="Enter the location" x:Name="Userlocation"/>
+                    <Entry Placeholder="Enter the deviceuser" x:Name="Userdeviceuser"/>
                 <DatePicker Format="dd/MM/yyyy" x:Name="Userdatepurchased"></DatePicker>
-                <Entry Placeholder="Entry the price" x:Name="Userprice"/>
-                <Entry Placeholder="Entry the HWdetail" x:Name="UserHWdetail"/>
-                <Entry Placeholder="Entry the status" x:Name="Userstatus"/>
+                    <Entry Placeholder="Enter the price" x:Name="Userprice"/>
+                    <Entry Placeholder="Enter the HWdetail" x:Name="UserHWdetail"/>
+                    <Entry Placeholder="Enter the status" x:Name="Userstatus"/>
+                    <Label Text="IP Address"></Label>
+                    <Entry Placeholder="Enter the IP Address" x:Name="Useripaddress"/>
 
-            </StackLayout>
+                </StackLayout>
 
             <Button Text="Connect With Server" Grid.Row="1" BackgroundColor="#294a70" x:Name="ConnectServer" TextColor="White" Clicked="ConnectServer_Clicked"/>
 
-            <Grid Grid.Row="2" RowDefinitions="Auto,Auto" ColumnDefinitions="*, *">
+                <Grid Grid.Row="2" RowDefinitions="Auto,Auto" ColumnDefinitions="*, *">
 
-                <Button Grid.Row="0" Grid.Column="0" Text="Scan" x:Name="MyScanner" BackgroundColor="#294a70" TextColor="White"  Clicked="MyScanner_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="1"  Text="Add record" x:Name="AddRecord" BackgroundColor="#294a70" TextColor="White"  Clicked="AddRecord_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="0"  Text="View record" x:Name="ViewRecord" BackgroundColor="#294a70" TextColor="White"  Clicked="ViewRecord_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="1"  Text="update" x:Name="Update" BackgroundColor="#294a70" TextColor="White"  Clicked="UpdateRecord_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="0"  Text="View Logs" x:Name="ViewLogs" BackgroundColor="#294a70" TextColor="White"  Clicked="ViewLogs_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="1"  Text="Exit" x:Name="Exit" BackgroundColor="#294a70" TextColor="White"  Clicked="Exit_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="0"  Text="View Record 2" x:Name="View" BackgroundColor="#294a70" TextColor="White"  Clicked="View_Clicked"/>
+                    <Label Text="Use this two buttons in add function"></Label>
+                    <Button Grid.Row="0" Grid.Column="0" Text="Scan" x:Name="MyScanner" BackgroundColor="#294a70" TextColor="White"  Clicked="MyScanner_Clicked"/>
+                    <Button Grid.Row="0" Grid.Column="1"  Text="Add record" x:Name="AddRecord" BackgroundColor="#294a70" TextColor="White"  Clicked="AddRecord_Clicked"/>
+
+                    <Label Text="These button below are navigation page"></Label>
+                    <Button Grid.Row="3" Grid.Column="0"  Text="View Record" x:Name="View" BackgroundColor="#294a70" TextColor="White"  Clicked="View_Clicked"/>
+                    <Button Grid.Row="3" Grid.Column="1"  Text="update" x:Name="Update" BackgroundColor="#294a70" TextColor="White"  Clicked="UpdateRecord_Clicked"/>
+                    
+                </Grid>
+
             </Grid>
-                
-            <ListView Grid.Row="3" x:Name="MyListView" HasUnevenRows="True" Footer="">
-
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid RowDefinitions="Auto,Auto,Auto">
-                                <Label Grid.Row="1" Text="{Binding assettag}" TextColor="Black" ></Label>
-                                <Label Grid.Row="2" Text="{Binding assettype}" TextColor="Black" ></Label>
-                                <Label Grid.Row="3" Text="{Binding devicename}" TextColor="Black" ></Label>
-                                <!--<Label Grid.Row="4" Text="{Binding brand}" TextColor="Black" ></Label>
-                                <Label Grid.Row="5" Text="{Binding model}" TextColor="Black" ></Label>
-                                <Label Grid.Row="6" Text="{Binding sn}" TextColor="Black" ></Label>-->
-
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                
-            </ListView>
-        
-        
-        </Grid>
     </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

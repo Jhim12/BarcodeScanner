@@ -43,7 +43,7 @@ namespace BarcodeScanner
             {
                 InitializeComponent();
                 string serverdbname = "src_db";
-                string servername = "10.0.0.136"; // Using wifi the mobile app can get access to SSMS
+                string servername = "192.168.100.106"; // Using wifi the mobile app can get access to SSMS
                 string serverusername = "sa";
                 string serverpassword = "masterfile";
 
@@ -102,7 +102,11 @@ namespace BarcodeScanner
 
         private async void ConnectServer2_Clicked(object sender, EventArgs e)
         {
-
+            string serverdbname = "src_db";
+            string serverusername = "sa";
+            string serverpassword = "masterfile";
+            string sqlconn = $"Data Source={Useripaddress2.Text};Initial Catalog={serverdbname};User ID={serverusername};Password={serverpassword}";
+            sqlConnection = new SqlConnection(sqlconn);
             sqlConnection.Open();
             await App.Current.MainPage.DisplayAlert("Alert", "Connection Establish", "Ok");
             sqlConnection.Close();

@@ -7,6 +7,8 @@
             <Entry Placeholder="Search Record" x:Name="UserSearch"/>
             <Button Text="Scan" x:Name="MyScanner2" BackgroundColor="#294a70" TextColor="White"  Clicked="MyScanner2_Clicked"/>
             <Button Text="View Record 2" x:Name="Find" BackgroundColor="#294a70" TextColor="White"  Clicked="Find_Clicked"/>
+            <Label Text="IP Address"></Label>
+            <Entry Placeholder="Enter the IP Address" x:Name="Useripaddress2"/>
             <Button Text="Connect With Server" Grid.Row="1" BackgroundColor="#294a70" x:Name="ConnectServer2" TextColor="White" Clicked="ConnectServer2_Clicked"/>
 
             <ListView x:Name="MyView" HasUnevenRows="True" Footer="">
